@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript">
+    var arrayRoles;
+    var counter = 0;
+      function AssignRoles() {
+        arrayRoles = [2]; //Declare array and assign detective; 2 is detective
+        var x = document.getElementById('form');
+        var numPlayers = x.elements[0].value;
+        var traitorRatio = x.elements[1].value;
+        var boolJester = x.elements[2].checked;
+        var boolPhoenix = x.elements[3].checked;
+        var boolSurvival = x.elements[4].checked;
+        var boolInfected = x.elements[5].checked;
+
+        var numTraitors = Math.round((numPlayers - 1) * traitorRatio);
+        for (i = 0; i < numTraitors; i++){
+          arrayRoles.push(1);
+        }
+        if(boolJester && arrayRoles.length < numPlayers){ //Assign jester to array; 3 is jester
+          x = Math.floor(Math.random() * 9) + 1;
+          if(x < 5){
+            arrayRoles.push(3);
+          }
+        }
+        if(boolPhoenix && arrayRoles.length < numPlayers){ //Assign phoenix to array; 4 is phoenix
+          x = Math.floor(Math.random() * 9) + 1;
+          if(x < 4){
+            arrayRoles.push(4);
+          }
+        }
+        if(boolSurvival && arrayRoles.length < numPlayers){ //Assign survivalist to array; 5 is survivalist
+          x = Math.floor(Math.random() * 9) + 1;
+          if(x < 4){
+            arrayRoles.push(5);
+          }
+        }
+        if(boolInfected && arrayRoles.length < numPlayers){ //Assign infected to array; 6 is infected
+          var x = Math.floor(Math.random() * 9) + 1;
+          if(x < 4){
+            arrayRoles.push(6);
+          }
+        }
+
+        x = numPlayers - arrayRoles.length;
+        for(i = 0; i < x; i++){ //Fill with innocent; 0 is innocent
+          arrayRoles.push(0);
+        }
+        //document.getElementById('test').innerHTML = arrayRoles.toString();
+        arrayRoles = ArrayShuffle(arrayRoles);
+        //document.getElementById('test').innerHTML = arrayRoles.toString();
+
+        document.getElementById('creatormain').className = 'assign';
+        ShowRoles();
+      }
+
+      function ArrayShuffle(array) {
+        var currentIndex = array.length, temporaryValue, randomIndex;
+
+        // While there remain elements to shuffle...
+        while (0 !== currentIndex) {
+
+          // Pick a remaining element...
+          randomIndex = Math.floor(Math.random() * currentIndex);
+          currentIndex -= 1;
+
+          // And swap it with the current element.
+          temporaryValue = array[currentIndex];
+          array[currentIndex] = array[randomIndex];
+          array[randomIndex] = temporaryValue;
+        }
+        return array;
+      }
+
+      function ShowRoles() {
+        var array = arrayRoles;
+        var dispFirst = document.getElementById('ass-first');
+        var dispInnocent = document.getElementById('ass-inno');
+        var dispTraitor = document.getElementById('ass-traitor');
+        var dispDetective = document.getElementById('ass-detect');
+        var dispJester = document.getElementById('ass-jester');
+        var dispPhoenix = document.getElementById('ass-phoenix');
+        var dispSurvivalist = document.getElementById('ass-survival');
+        var dispInfected = document.getElementById('ass-infected');
+
+        if(dispFirst.className === "assign-anim"){
+          if(array[counter] === 0){
+            dispInnocent.className = "assign-anim";
+          }
+          else if(array[counter] === 1){
+            dispTraitor.className = "assign-anim";
+          }
+          else if(array[counter] === 2){
+            dispDetective.className = "assign-anim";
+          }
+          else if(array[counter] === 3){
+            dispJester.className = "assign-anim";
+          }
+          else if(array[counter] === 4){
+            dispPhoenix.className = "assign-anim";
+          }
+          else if(array[counter] === 5){
+            dispSurvivalist.className = "assign-anim";
+          }
+          else if(array[counter] === 6){
+            dispInfected.className = "assign-anim";
+          }
+          dispFirst.className = "assign";
+          counter++;
+        }
+        else {
+          dispFirst.className = "assign-anim";
+
+          dispInnocent.className = "assign";
+          dispTraitor.className = "assign";
+          dispDetective.className = "assign";
+          dispJester.className = "assign";
+          dispPhoenix.className = "assign";
+          dispSurvivalist.className = "assign";
+          dispInfected.className = "assign";
+        }
+      }
+    </script>
+    <style>
+      body{
+        font-family: sans-serif;
+        background-color: #353535;
+        color: #fff;
+      }
+      .header{
+        text-align: center;
+        width: 100%;
+      }
+      h1{
+        font-size: 30pt;
+      }
+      .button-header{
+        font-size: 20pt;
+        border: 3px solid black;
+      }
+      .button{
+        width: 50%;
+        padding-top: 15%;
+        padding-bottom: 15%;
+        text-align: center;
+        float: left;
+      }
+      #div-innocent{background-color: #38b230;}
+      #div-traitor{background-color:#bf2f2f;}
+      #div-detective{background-color:#2f2fbf;}
+      #div-phoenix{background-color:#30b8d1;}
+      #div-jester{background-color:#d12fc0;}
+      #div-survivalist{background-color:#d1802e;}
+      #div-infected{background-color:#000;}
+      #div-extra{background-color:#555;}
+      a{
+        color: inherit;
+        text-decoration: inherit;
+      }
+
+      #creatormain{
+        position: absolute;
+      }
+      .assign{
+        width:100%;
+        height:100%;
+        text-align: center;
+        font-family: verdana;
+        color: #fff;
+        position: absolute;
+        display: none;
+        opacity: 0;
+        animation-name: hiderole;
+        animation-duration: 0.5s;
+      }
+      .assign-anim{
+        display: block;
+        opacity: 1;
+        width:100%;
+        height:100%;
+        text-align: center;
+        font-family: verdana;
+        color: #fff;
+        position: absolute;
+        animation-name: showrole;
+        animation-duration: 0.5s;
+      }
+      .assign h2{
+        font-style: italic;
+      }
+      .assign p{
+        font-size:10pt;
+      }
+      #ass-first{
+        background-color: #707070;
+      }
+      #ass-inno{
+        background-color: #62d136;
+      }
+      #ass-traitor{
+        background-color: #d13a3a;
+      }
+      #ass-detect{
+        background-color: #3a53d1;
+      }
+      #ass-jester{
+        background-color: #f984f4;
+      }
+      #ass-phoenix{
+        background-color: #60d6c9;
+      }
+      #ass-survival{
+        background-color: #e5a91d;
+      }
+      #ass-infected{
+        background-color: #000000;
+      }
+
+      @keyframes showrole {
+        0% {opacity: 0;}
+        100% {opacity: 1;}
+      }
+      @keyframes hiderole {
+        0% {opacity: 1; display: block;}
+        100% {opacity: 0; display: block;}
+      }
+    </style>
+  </head>
+  <body>
+      <div id="creatormain">
+        <p id="test" />
+        <p id="test2" />
+        <h1>Round Creator</h1>
+        <form action="/action_page.php" id="form">
+          Number of Players: <input type="number" name="numPlayers" min="2" max="99" value="10" /><br />
+          Traitor Ratio: <input type="number" name="traitorRatio" min="0.01" max="0.99" step="0.01" value="0.2" /><br />
+          Jester: <input type="checkbox" name="boolJester" /><br />
+          Phoenix: <input type="checkbox" name="boolPhoenix" /><br />
+          Survivalist: <input type="checkbox" name="boolSurvival" /><br />
+          Infected: <input type="checkbox" name="boolInfected" /><br />
+          <input type="button" value="Begin!" onclick="AssignRoles()" />
+        </form>
+      </div>
+      <div id="ass-first" class="assign" onclick="ShowRoles()">
+        <p><h2>Tap to reveal your role</h2></p>
+        <p>Make sure that no one else sees this!</p>
+        <p>Once you have viewed your role, pass this to the next player!</p>
+      </div>
+      <div id="ass-inno" class="assign" onclick="ShowRoles()">
+        <p><h2>Innocent</h2></p>
+        <p>Work together with the detective and other innocents to hunt down and kill the traitors!</p>
+        <p>Make sure that no one else sees this! Tap to hide!</p>
+      </div>
+      <div id="ass-traitor" class="assign" onclick="ShowRoles()">
+        <p><h2>Traitor</h2></p>
+        <p>Work together with your fellow traitors to kill everyone!</p>
+        <p>Make sure that no one else sees this! Tap to hide!</p>
+      </div>
+      <div id="ass-detect" class="assign" onclick="ShowRoles()">
+        <p><h2>Detective</h2></p>
+        <p>Work with innocents to solve the mystery and kill the traitors!</p>
+        <p>Make sure that no one else sees this! Tap to hide!</p>
+      </div>
+      <div id="ass-jester" class="assign" onclick="ShowRoles()">
+        <p><h2>Jester</h2></p>
+        <p>Get yourself killed! Whoever kills you dies and you take their place!</p>
+        <p>Make sure that no one else sees this! Tap to hide!</p>
+      </div>
+      <div id="ass-phoenix" class="assign" onclick="ShowRoles()">
+        <p><h2>Phoenix</h2></p>
+        <p>You are an innocent! When you die, wait 30 seconds to come back to life!</p>
+        <p>Make sure that no one else sees this! Tap to hide!</p>
+      </div>
+      <div id="ass-survival" class="assign" onclick="ShowRoles()">
+        <p><h2>Survivalist</h2></p>
+        <p>You are an innocent! Use your buy menu to help out the innocents!</p>
+        <p>Make sure that no one else sees this! Tap to hide!</p>
+      </div>
+      <div id="ass-infected" class="assign" onclick="ShowRoles()">
+        <p><h2>Infected</h2></p>
+        <p>You're a zombie! When you melee another player they become infected too!</p>
+        <p>Make sure that no one else sees this! Tap to hide!</p>
+      </div>
+  </body>
+</html>
