@@ -26,7 +26,7 @@
       .inspect-showrole{
         display: block;
         opacity: 1;
-        background-color: #38b230;
+        background-color: #bf2f2f;
         position: absolute;
         width: 100%;
         animation-name: showInspect;
@@ -35,7 +35,7 @@
       @keyframes showInspect {
         0% { opacity: 0; background-color: #fff; color:#fff; }
         50% { opacity: 0.5; background-color: #888; color:#898989; }
-        100% { opacity: 1; background-color: #38b230; color:#fff; }
+        100% { opacity: 1; background-color: #bf2f2f; color:#fff; }
       }
     </style>
   </head>
@@ -48,16 +48,20 @@
     </div>
     <div id="role-inspected" class="inspect-hidden" onclick="HideInspect()">
       <br />
-      <h1>Innocent</h1>
+      <h1>Traitor</h1>
       <br />
     </div>
     <div class="hidden" id="menu-inv">
       <div id="close-menu" onclick="HideMenuInv()">Close</div>
       <h3 id="inv-header">Inventory</h3>
-      <strong><div id="inv1" class="inv-item-none">No item</div></strong>
-      <strong><div id="inv2" class="inv-item-none">No item</div></strong>
+      <strong id="inv0"><div class="inv-item-buy" onclick="HealSelf()">Heal 25HP<p />Can only be used when using a health station.</div></strong>
+      <strong id="inv1"><div class="inv-item-none">No item</div></strong>
+      <strong id="inv2"><div class="inv-item-none">No item</div></strong>
       <h3 id="inv-header">Buy Menu</h3>
-      <p id="buy-menu-items"><em>Unavailable</em></p>
+      <strong id="defib"><div class="inv-item-defib" id="buy-defib" onclick="BuyDefib()">Defibrillator<p />Revive a player with this tool.</div></strong>
+      <strong id="teamchanger"><div class="inv-item-teamchanger" id="buy-teamchanger" onclick="BuyTeamChanger()">Team Changer<p />Change the team of a corpse.</div></strong>
+      <strong id="bpv"><div class="inv-item-bpv" id="buy-bpv" onclick="BuyVest()">Bullet Proof Vest<p />Add 25 HP. Cannot be healed over.</div></strong>
+      <strong id="phs"><div class="inv-item-phs" id="buy-phs" onclick="BuyStation()">Portable Health Station<p />Use charges to heal players.</div></strong>
       <h3 id="inv-header">Other Roles</h3>
       <div class="menu-roles-container">
         <a href="innocent.html"><div class="menu-roles" id="innocent">Innocent</div></a>
