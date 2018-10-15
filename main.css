@@ -3,12 +3,13 @@ body{
   background-color: #353535;
   color: #fff;
 }
-.header{
+#menu-header{
   text-align: center;
-  width: 100%;
+  font-weight: bold;
 }
 h1{
   font-size: 30pt;
+  text-align: center;
 }
 .button-header{
   font-size: 20pt;
@@ -20,6 +21,7 @@ h1{
   padding-bottom: 15%;
   text-align: center;
   float: left;
+  cursor: pointer;
 }
 #div-innocent{background-color: #38b230;}
 #div-traitor{background-color:#bf2f2f;}
@@ -33,6 +35,25 @@ a{
   color: inherit;
   text-decoration: inherit;
 }
+
+.hidden{
+  display: none;
+}
+.role-menu-show{
+  display: block;
+}
+.inspect{
+
+}
+#innocent:hover, #traitor:hover, #detective:hover, #jester:hover, #phoenix:hover, #survivalist:hover, #infected:hover{
+
+}
+
+
+
+
+
+
 
 #creatormain{
   position: absolute;

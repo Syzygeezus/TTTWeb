@@ -2,15 +2,14 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="main.css" />
+    <script src="index.js"></script>
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
   </head>
   <body>
-    <div class="header">
+    <div class="role-menu-show" id="main">
       <h1>TTT</h1>
-    </div>
-    <div class="main">
-      <div class="menu-header" colspan="2">Role Selection</div>
-      <div class="button" id="div-innocent">Innocent</div>
+      <div id="menu-header" colspan="2">Role Selection</div>
+      <div class="button" id="div-innocent" onclick="InnocentShow()">Innocent</div>
       <div class="button" id="div-traitor">Traitor</div>
       <div class="button" id="div-detective">Detective</div>
       <div class="button" id="div-phoenix">Phoenix</div>
@@ -18,6 +17,27 @@
       <div class="button" id="div-survivalist">Survivalist</div>
       <div class="button" id="div-infected">Infected</div>
       <a href="roundcreator.html"><div class="button" id="div-extra">Round Creator</div></a>
+    </div>
+    <div id="innocent" class="hidden">
+      <div class="inspect">?</div>
+    </div>
+    <div id="traitor" class="hidden">
+
+    </div>
+    <div id="detective" class="hidden">
+
+    </div>
+    <div id="jester" class="hidden">
+
+    </div>
+    <div id="phoenix" class="hidden">
+
+    </div>
+    <div id="survivalist" class="hidden">
+
+    </div>
+    <div id="infected" class="hidden">
+
     </div>
   </body>
 </html>
