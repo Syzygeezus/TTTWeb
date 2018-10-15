@@ -10,7 +10,12 @@
         width:100%;
         padding-top: 20px;
         padding-bottom: 20px;
-        position: absolute;
+      }
+      .buy-menu{
+        background-color: #555;
+        width:100%;
+        padding-top: 20px;
+        padding-bottom: 20px;
       }
       .inspect-hidden{
         display: none;
@@ -36,13 +41,38 @@
     <div class="inspect" style="cursor: pointer;" onclick="ShowInspect()">
       Inspect Body
     </div>
+    <div class="buy-menu">
+      Buy Menu
+    </div>
     <div id="role-inspected" class="inspect-hidden" onclick="HideInspect()">
       <br />
       <h1>Innocent</h1>
       <br />
     </div>
-    <div id="buy-menu" class="inspect-hidden">
-
+    <br />
+    <div id="upperbody-container">
+      <div id="body-head"></div>
+      <br />
+      <div id="body-larm">
+        <div id="body-larmupper"></div>
+        <div id="body-larmlower"></div>
+      </div>
+      <div id="body-torso"></div>
+      <div id="body-rarm">
+        <div id="body-rarmupper"></div>
+        <div id="body-rarmlower"></div>
+      </div>
+      <br />
+    </div>
+    <div id="lowerbody-container">
+      <div id="body-lleg">
+        <div id="body-lthigh"></div>
+        <div id="body-lshin"></div>
+      </div>
+      <div id="body-rleg">
+        <div id="body-rthigh"></div>
+        <div id="body-rshin"></div>
+      </div>
     </div>
   </body>
 </html>
