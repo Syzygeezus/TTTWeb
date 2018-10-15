@@ -145,6 +145,7 @@ a{
   cursor: pointer;
   animation-name: defib-success;
   animation-duration: 6.25s;
+  animation-iteration-count: 1;
 }
 .defib-f{
   background-color: #bfb200;

@@ -1,7 +1,10 @@
 var health = 100;
 var credits = 2;
 
+var arrayRandomat = ['No u - Swap your current role with the role horizontally opposite on the menu!','Javelin - No guns or melee this round... Only throwing bullets!','THIS IS SPARTA - Melee only!','#BringBackOldJester - If the jester dies, they win the round!','Team Deathmatch - Half vs Half. All using survivalist role!','Deathmatch - All on all as survivalist!']
 var hsCharges = 4;
+var defibUsed = false;
+var randomatUsed = false;
 
 function ShowInspect(){
   document.getElementById('role-inspected').className = "inspect-showrole";
@@ -92,11 +95,11 @@ function BuyStation(){
 function BuyGoldenGun(){
   document.getElementById('goldengun').className = "hidden";
   if(credits === 2){
-    document.getElementById('inv1').innerHTML = '<div class="inv-item-goldengun">Golden gun<p />A weapon that can be used to kill a traitor in one shot, but if the victim is not a traitor, the shooter dies instead.</div>';
+    document.getElementById('inv1').innerHTML = '<div class="inv-item-goldengun">Golden gun<p />Kill a traitor, kill firer if victim not traitor.</div>';
     credits--;
   }
   else {
-    document.getElementById('inv2').innerHTML = '<div class="inv-item-goldengun">Golden gun<p />A weapon that can be used to kill a traitor in one shot, but if the victim is not a traitor, the shooter dies instead.</div>';
+    document.getElementById('inv2').innerHTML = '<div class="inv-item-goldengun">Golden gun<p />Kill a traitor, kill firer if victim not traitor.</div>';
     credits--;
     BuyHideAll();
   }
@@ -104,11 +107,11 @@ function BuyGoldenGun(){
 function BuyRandomat(){
   document.getElementById('randomat').className = "hidden";
   if(credits === 2){
-    document.getElementById('inv1').innerHTML = '<div class="inv-item-randomat" id="inv-has-randomat" onclick="UseRandomat()">Randomat<p />Apply randomness to a round.</div>';
+    document.getElementById('inv1').innerHTML = '<div class="inv-item-randomat" id="inv-has-randomat" onclick="UseRandomat()">Randomat<p />Apply randomness to the round!</div>';
     credits--;
   }
   else {
-    document.getElementById('inv2').innerHTML = '<div class="inv-item-randomat" id="inv-has-randomat" onclick="UseRandomat()">Randomat<p />Apply randomness to a round.</div>';
+    document.getElementById('inv2').innerHTML = '<div class="inv-item-randomat" id="inv-has-randomat" onclick="UseRandomat()">Randomat<p />Apply randomness to the round!</div>';
     credits--;
     BuyHideAll();
   }
@@ -124,8 +127,10 @@ function BuyHideAll(){
 
 function UseDefib(){
   var x = Math.floor(Math.random() * 9) + 1;
+  if(defibUsed){ return; }
   if(x > 6){
     document.getElementById('inv-has-defib').className = "defib-s";
+    defibUsed = true;
   }
   else {
     document.getElementById('inv-has-defib').className = "defib-f";
@@ -142,10 +147,17 @@ function UseStation(){
   }
 }
 function UseRandomat(){
-
+  MakeARandomRoundPlz();
 }
+
 function HealSelf(){
   health+=25;
   if(health > 100){ health = 100; }
   UpdateHP();
+}
+function MakeARandomRoundPlz(){
+  if(randomatUsed){ return; }
+  var x = Math.floor(Math.random() * (arrayRandomat.length - 1)) + 1;
+  document.getElementById('inv-has-randomat').innerHTML = arrayRandomat[x];
+  randomatUsed = true;
 }
