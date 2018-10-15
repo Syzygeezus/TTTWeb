@@ -10,6 +10,9 @@ function HideInspect(){
 function ShowMenuInv(){
   document.getElementById('menu-inv').className = "menu-inv";
 }
+function HideMenuInv(){
+  document.getElementById('menu-inv').className = "hidden";
+}
 
 function DamageHead(){
   health-=100;

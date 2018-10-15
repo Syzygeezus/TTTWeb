@@ -16,6 +16,7 @@
         width:100%;
         padding-top: 20px;
         padding-bottom: 20px;
+        cursor: pointer;
       }
       .inspect-hidden{
         display: none;
@@ -50,7 +51,12 @@
       <br />
     </div>
     <div class="hidden" id="menu-inv">
-
+      <div id="close-menu" onclick="HideMenuInv()">Close</div>
+      <h3 id="inv-header">Inventory</h3>
+      <strong><div id="inv1" class="inv-item-none">No item</div></strong>
+      <strong><div id="inv2" class="inv-item-none">No item</div></strong>
+      <h3 id="inv-header">Buy Menu</h3>
+      <p id="buy-menu-items"><em>Unavailable</em></p>
     </div>
     <strong><p id="hp">HP: 100</p></strong>
     <br />
