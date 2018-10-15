@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TTT but IRL</title>
+    <link rel="stylesheet" type="text/css" href="rolemenu.css" />
+    <script src="rolemenu.js"></script>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
+    <style>
+      .inspect{
+        background-color: #444;
+        width:100%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+      .menu{
+        background-color: #555;
+        width:100%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        cursor: pointer;
+      }
+      .inspect-hidden{
+        display: none;
+        position: absolute;
+      }
+      .inspect-showrole{
+        display: block;
+        opacity: 1;
+        background-color: #d1802e;
+        position: absolute;
+        width: 100%;
+        animation-name: showInspect;
+        animation-duration: 5s;
+      }
+      @keyframes showInspect {
+        0% { opacity: 0; background-color: #fff; color:#fff; }
+        50% { opacity: 0.5; background-color: #888; color:#898989; }
+        100% { opacity: 1; background-color: #d1802e; color:#fff; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="inspect" style="cursor: pointer;" onclick="ShowInspect()">
+      Inspect Body
+    </div>
+    <div class="menu" id="menu" onclick="ShowMenuInv()">
+      Menu
+    </div>
+    <div id="role-inspected" class="inspect-hidden" onclick="HideInspect()">
+      <br />
+      <h1>Survivalist</h1>
+      <br />
+    </div>
+    <div class="hidden" id="menu-inv">
+      <div id="close-menu" onclick="HideMenuInv()">Close</div>
+      <h3 id="inv-header">Inventory</h3>
+      <strong id="inv0"><div class="inv-item-buy" onclick="HealSelf()">Heal 25HP<p />Can only be used when using a health station.</div></strong>
+      <strong id="inv1"><div class="inv-item-none">No item</div></strong>
+      <strong id="inv2"><div class="inv-item-none">No item</div></strong>
+      <h3 id="inv-header">Buy Menu</h3>
+      <strong id="bpv"><div class="inv-item-bpv" id="buy-bpv" onclick="BuyVest()">Bullet Proof Vest<p />Add 25 HP. Cannot be healed over.</div></strong>
+      <strong id="phs"><div class="inv-item-phs" id="buy-phs" onclick="BuyStation()">Portable Health Station<p />Use charges to heal players.</div></strong>
+      <h3 id="inv-header">Other Roles</h3>
+      <div class="menu-roles-container">
+        <a href="innocent.html"><div class="menu-roles" id="innocent">Innocent</div></a>
+        <a href="traitor.html"><div class="menu-roles" id="traitor">Traitor</div></a>
+        <a href="detective.html"><div class="menu-roles" id="detective">Detective</div></a>
+        <a href="jester.html"><div class="menu-roles" id="jester">Jester</div></a>
+        <br />
+        <a href="phoenix.html"><div class="menu-roles" id="phoenix">Phoenix</div></a>
+        <a href="survivalist.html"><div class="menu-roles" id="survivalist">Survivalist</div></a>
+        <a href="infected.html"><div class="menu-roles" id="infected">Infected</div></a>
+      </div>
+    </div>
+    <strong><p id="hp">HP: 100</p></strong>
+    <br />
+    <div id="upperbody-container">
+      <div id="body-head" onclick="DamageHead()"></div>
+      <br />
+      <div id="body-larm">
+        <div id="body-larmupper" onclick="DamageUpperExt()"></div>
+        <div id="body-larmlower" onclick="DamageLowerExt()"></div>
+      </div>
+      <div id="body-torso" onclick="DamageTorso()"></div>
+      <div id="body-rarm">
+        <div id="body-rarmupper" onclick="DamageUpperExt()"></div>
+        <div id="body-rarmlower" onclick="DamageLowerExt()"></div>
+      </div>
+      <br />
+    </div>
+    <div id="lowerbody-container">
+      <div id="body-lleg">
+        <div id="body-lthigh" onclick="DamageUpperExt()"></div>
+        <div id="body-lshin" onclick="DamageLowerExt()"></div>
+      </div>
+      <div id="body-rleg">
+        <div id="body-rthigh" onclick="DamageUpperExt()"></div>
+        <div id="body-rshin" onclick="DamageLowerExt()"></div>
+      </div>
+    </div>
+  </body>
+</html>
