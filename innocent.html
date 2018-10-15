@@ -2,8 +2,15 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="rolemenu.css" />
+    <script src="showrole.js"></script>
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
     <style>
+      .inspect{
+        background-color: #444;
+        width:100%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
       .inspect-hidden{
         display: none;
         position: absolute;
@@ -11,20 +18,27 @@
       .inspect-showrole{
         display: block;
         opacity: 1;
+        background-color: #38b230;
         position: absolute;
+        width: 100%;
         animation-name: showInspect;
         animation-duration: 5s;
       }
       @keyframes showInspect {
         0% { opacity: 0; background-color: #fff; color:#fff; }
-        50% { opacity: 0.5; background-color: #888; color:#fff; }
-        100% { opacity: 1; background-color: #38b230;; }
+        50% { opacity: 0.5; background-color: #888; color:#999; }
+        100% { opacity: 1; background-color: #38b230; color:#fff; }
       }
     </style>
   </head>
   <body>
-    <div class="inspect" style="cursor: pointer;">
+    <div class="inspect" style="cursor: pointer;" onclick="ShowInspect()">
       Inspect Body
+    </div>
+    <div id="role-inspected" class="inspect-hidden">
+      <br />
+      <h1>Innocent</h1>
+      <br />
     </div>
   </body>
 </html>

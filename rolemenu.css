@@ -3,9 +3,9 @@ body{
   background-color: #000;
   color: #fff;
   text-align: center;
+  margin: auto;
 }
-.inspect{
-  background-color: #444;
-  width:100%;
-  padding:20px;
+h1{
+  font-size: 30pt;
+  text-align: center;
 }
