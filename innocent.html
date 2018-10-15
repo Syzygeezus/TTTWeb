@@ -10,6 +10,7 @@
         width:100%;
         padding-top: 20px;
         padding-bottom: 20px;
+        position: absolute;
       }
       .inspect-hidden{
         display: none;
@@ -35,10 +36,13 @@
     <div class="inspect" style="cursor: pointer;" onclick="ShowInspect()">
       Inspect Body
     </div>
-    <div id="role-inspected" class="inspect-hidden">
+    <div id="role-inspected" class="inspect-hidden" onclick="HideInspect()">
       <br />
       <h1>Innocent</h1>
       <br />
+    </div>
+    <div id="buy-menu" class="inspect-hidden">
+
     </div>
   </body>
 </html>
