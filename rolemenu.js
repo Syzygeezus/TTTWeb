@@ -124,7 +124,7 @@ function BuyHideAll(){
 
 function UseDefib(){
   var x = Math.floor(Math.random() * 9) + 1;
-  if(x > 4){
+  if(x > 6){
     document.getElementById('inv-has-defib').className = "defib-s";
   }
   else {
