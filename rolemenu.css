@@ -8,6 +8,7 @@ body{
 h1{
   font-size: 30pt;
 }
+.hidden{ display: none; }
 #upperbody-container{
   width: 260px;
   margin: auto;
@@ -34,3 +35,9 @@ h1{
 #body-lshin{ width:50px; height:90px; border: 5px solid #fff; margin-top:10px; }
 #body-rthigh{ width:50px; height:90px; border: 5px solid #fff; }
 #body-rshin{ width:50px; height:90px; border: 5px solid #fff; margin-top:10px; }
+
+.menu-inv{
+  display:block;
+  width:100%;
+  position:absolute;
+}

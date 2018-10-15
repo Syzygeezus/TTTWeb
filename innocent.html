@@ -2,7 +2,7 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="rolemenu.css" />
-    <script src="showrole.js"></script>
+    <script src="rolemenu.js"></script>
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
     <style>
       .inspect{
@@ -11,7 +11,7 @@
         padding-top: 20px;
         padding-bottom: 20px;
       }
-      .buy-menu{
+      .menu{
         background-color: #555;
         width:100%;
         padding-top: 20px;
@@ -32,7 +32,7 @@
       }
       @keyframes showInspect {
         0% { opacity: 0; background-color: #fff; color:#fff; }
-        50% { opacity: 0.5; background-color: #888; color:#999; }
+        50% { opacity: 0.5; background-color: #888; color:#898989; }
         100% { opacity: 1; background-color: #38b230; color:#fff; }
       }
     </style>
@@ -41,37 +41,41 @@
     <div class="inspect" style="cursor: pointer;" onclick="ShowInspect()">
       Inspect Body
     </div>
-    <div class="buy-menu">
-      Buy Menu
+    <div class="menu" id="menu" onclick="ShowMenuInv()">
+      Menu
     </div>
     <div id="role-inspected" class="inspect-hidden" onclick="HideInspect()">
       <br />
       <h1>Innocent</h1>
       <br />
     </div>
+    <div class="hidden" id="menu-inv">
+
+    </div>
+    <strong><p id="hp">HP: 100</p></strong>
     <br />
     <div id="upperbody-container">
-      <div id="body-head"></div>
+      <div id="body-head" onclick="DamageHead()"></div>
       <br />
       <div id="body-larm">
-        <div id="body-larmupper"></div>
-        <div id="body-larmlower"></div>
+        <div id="body-larmupper" onclick="DamageUpperExt()"></div>
+        <div id="body-larmlower" onclick="DamageLowerExt()"></div>
       </div>
-      <div id="body-torso"></div>
+      <div id="body-torso" onclick="DamageTorso()"></div>
       <div id="body-rarm">
-        <div id="body-rarmupper"></div>
-        <div id="body-rarmlower"></div>
+        <div id="body-rarmupper" onclick="DamageUpperExt()"></div>
+        <div id="body-rarmlower" onclick="DamageLowerExt()"></div>
       </div>
       <br />
     </div>
     <div id="lowerbody-container">
       <div id="body-lleg">
-        <div id="body-lthigh"></div>
-        <div id="body-lshin"></div>
+        <div id="body-lthigh" onclick="DamageUpperExt()"></div>
+        <div id="body-lshin" onclick="DamageLowerExt()"></div>
       </div>
       <div id="body-rleg">
-        <div id="body-rthigh"></div>
-        <div id="body-rshin"></div>
+        <div id="body-rthigh" onclick="DamageUpperExt()"></div>
+        <div id="body-rshin" onclick="DamageLowerExt()"></div>
       </div>
     </div>
   </body>
